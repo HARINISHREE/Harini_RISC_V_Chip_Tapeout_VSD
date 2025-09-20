@@ -1,0 +1,64 @@
+STEP 1 : WRITE & TEST THE APPLICATION 
+
+The goal is to run a program on the chip you’re designing.
+The program is usually written in C language.
+First, check the program works correctly using the GCC compiler on Linux.
+Simultaneously, model the processor specs in software.
+Compare the program output on the GCC compiler with the expected processor specs.
+Once outputs match, the processor specs are freezed.
+
+STEP 2 : CREATE A SOFT COPY OF THE HARDWARE
+
+The hardware is described using RTL (Register Transfer Level).
+RTL is split into:
+Processor – the brain of the chip.
+Peripheral IPs – extra modules like memory controllers, USB, timers.
+
+Peripheral IPs may include macros (digital building blocks) and analog IPs (for signals, clocks, etc.).
+The processor must be synthesizable – meaning it can be converted into actual gate-level hardware.
+Compare the RTL output with the earlier software specs to ensure they match.
+
+STEP 3 : SoC INTEGRATION
+
+Combine all blocks (processor + peripheral IPs) to form a System on Chip (SoC).
+Assign each block to the correct GPIO pins on the chip.( SoC Integration Engineer)
+When the processor is combined with all the macros and IPs, it essentially becomes a microcontroller.
+
+STEP 4 : PHYSICAL DESIGN (RTL => GDSII)
+Convert RTL into a physical chip layout. This involves:
+
+Floorplanning – deciding where each block goes on the chip.
+Placement – placing individual cells and gates.
+Clock Tree Synthesis (CTS) – designing the clock network.
+Routing – connecting all the blocks electrically.
+After this, the design is fully converted into transistors and gates.
+The output is a GDSII file (Graphical Data Stream Information Interchange).
+Run DRC (Design Rule Check) and LVS (Layout vs Schematic) to ensure everything is correct.
+
+STEP 5 : TAPE OUT & FABRICATION
+
+The GDSII file is sent to the foundry=> "tape out".
+Foundry takes 4–6 months to fabricate the physical chips.
+The chips are packaged and returned =>“tape-in”.
+
+STEP 6: BOARDS & FIRMWARE
+
+Attach necessary peripherals: memory, USB, crystal oscillators, etc.
+Write firmware and software to run on the chip.
+Test the output at every step to ensure it matches the expected result.
+
+STEP 7: FINAL OUTPUT 
+
+The board frequency that we are going to design are typically around 100–130 MHz.
+Every stage—from C program, RTL, SoC integration, physical design, to final board—must match in output.
+If all outputs match, the chip is considered perfect and ready for use.
+
+✅ POINTS TO REMEMBER: 
+
+Test application in C → finalize processor specs.
+Write hardware in RTL → match specs.
+Integrate blocks → form SoC/microcontroller.
+Physical design → GDSII → checks.
+Send to foundry → get packaged chip.
+Attach peripherals → write firmware → verify outputs.
+
