@@ -1,0 +1,20 @@
+Design: The verilog codes which functions to meet the sepcification is called the design 
+Simulation: The process of checking the RTL Design, if it is meeting the required spec is the simlation 
+Tool Used: iverilog (open source tool)
+Test Bench: Is the setup done by giving the stimulus(test vectors) to the design to verify if it matches with the specs
+
+How Does a Simulator Work?
+=> Only when there is a change in the input, there will be a change in the output in the simulator 
+
+How Does a Testbench Work?
+=>The Design is instantiated in the testbench
+=>There is a stimulus generator that gives the primary inputs to the design 
+=>There is a stimulus observer which observe the primary outputs from the design 
+=>There is no primary input/primary output in the testbench 
+
+iverilog simulation flow
+=>The Design & Testbench are given to the iverilog 
+=>The file generated from iverilog(simulator) will be a vcd file(value change dump) => when there is a change in the input, there is a change in the output => these changes are noted and dumped in the file.
+
+gtkwave
+=> the vcd file can be viewed in the gtkwave(waveform viewer)
