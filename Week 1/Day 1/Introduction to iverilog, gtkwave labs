@@ -2,4 +2,8 @@ Git clone of sky130RTLDesignAndSynthesisWorkshop:
 https://github.com/HARINISHREE/Harini_RISC_V_Chip_Tapeout_VSD/blob/a210ca492b506a4f1d5ec0df7956b45eb858cd8d/Week%201/Day%201/SKY130%20Installation.png
 
 Files in the repo:
-my_lib : 
+my_lib : directories lib , verilog_model 
+lib: SKY130 Standard Cell library 
+verilog_model:Standard Cell Verilog Models
+verilog files: testbench files, source files for our lab expirements 
+
